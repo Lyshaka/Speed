@@ -7,12 +7,14 @@ public class TheSphere : MonoBehaviour
 	// Start is called before the first frame update
 	private Rigidbody Rigidbody;
 	public float MaxSpeed = 50;
-	float BrakeSpeed;
-	float Acceleration ;
-	float Deceleration;
-	private float CurrentSpeed = 0;
-	public float RotateSpeed = 90;
-	Camera playercam;
+	public float BrakeSpeed { get; private set; }
+    public float Acceleration { get; private set; }
+	public float Deceleration { get; private set; }
+    public float CurrentSpeed { get; private set; } = 0f;
+	public float RotateSpeed = 90f;
+	private float prevSpeed = 0f;
+    public float currentAcceleration { get; private set; }
+    Camera playercam;
 
 	public ParticleSystem ps_friction;
 	public AnimationCurve ac_friction;
@@ -37,6 +39,11 @@ public class TheSphere : MonoBehaviour
 	private void Move()
 	{
 		Vector3 Jump = Vector3.zero;
+
+		currentAcceleration = CurrentSpeed - prevSpeed;
+		prevSpeed = CurrentSpeed;
+		Debug.Log("Acceleration : " + currentAcceleration);
+        
 		if (Input.GetKey(KeyCode.S))
 		{
 			CurrentSpeed -= BrakeSpeed * Time.deltaTime;
@@ -49,7 +56,7 @@ public class TheSphere : MonoBehaviour
 		{
 			CurrentSpeed += Acceleration * Time.deltaTime;
 
-			if (CurrentSpeed > MaxSpeed)
+            if (CurrentSpeed > MaxSpeed)
 			{
 				CurrentSpeed = MaxSpeed;
 			}
@@ -59,7 +66,7 @@ public class TheSphere : MonoBehaviour
 			if (CurrentSpeed > 0)
 			{
 				CurrentSpeed -= Deceleration * Time.deltaTime;
-				if (CurrentSpeed < 0)
+                if (CurrentSpeed < 0)
 				{
 					CurrentSpeed = 0;
 				}
