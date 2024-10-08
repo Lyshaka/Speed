@@ -42,7 +42,6 @@ public class TheSphere : MonoBehaviour
 
 		currentAcceleration = CurrentSpeed - prevSpeed;
 		prevSpeed = CurrentSpeed;
-		Debug.Log("Acceleration : " + currentAcceleration);
         
 		if (Input.GetKey(KeyCode.S))
 		{
