@@ -25,10 +25,14 @@ public class Camfollow : MonoBehaviour
 	private Vector3 cameraTargetMinPosition;
 	private Vector3 cameraTargetMaxPosition;
 	private Vector3 cameraOriginalPosition;
+	private Vector3 cameraDefaultPosition;
 	private Vector3 currentVelocity;
 
 	private Camera cam;
 	private TheSphere player;
+
+	private bool camZoom = true;
+	private bool camFOV = true;
 
 	public Transform ps_friction;
 
@@ -37,7 +41,7 @@ public class Camfollow : MonoBehaviour
 		PrevMp = Input.mousePosition.y;
 		cam = GetComponent<Camera>();
 		player = GetComponentInParent<TheSphere>();
-		
+		cameraDefaultPosition = transform.localPosition;
 	}
 
 	// Update is called once per frame
@@ -91,7 +95,10 @@ public class Camfollow : MonoBehaviour
 			this.transform.LookAt(Target.position);
 
 			// Changement du fov en fonction de la vitesse
-			cam.fieldOfView = ((player.CurrentSpeed / player.MaxSpeed) * (maxFov - minFov)) + minFov;
+			if (camFOV)
+				cam.fieldOfView = ((player.CurrentSpeed / player.MaxSpeed) * (maxFov - minFov)) + minFov;
+			else
+				cam.fieldOfView = minFov;
 
 			// Debug
 			if (Input.GetKeyDown(KeyCode.J))
@@ -107,13 +114,40 @@ public class Camfollow : MonoBehaviour
 				transform.position = cameraTargetMaxPosition;
 			}
 
-			if (player.currentAcceleration > 0)
-                transform.position = Vector3.SmoothDamp(transform.position, cameraTargetMaxPosition, ref currentVelocity, TimeSmooth);
-			else if (player.currentAcceleration < 0)
-                transform.position = Vector3.SmoothDamp(transform.position, cameraTargetMinPosition, ref currentVelocity, TimeSmooth);
+			if (camZoom)
+			{
+				if (player.currentAcceleration > 0)
+					transform.position = Vector3.SmoothDamp(transform.position, cameraTargetMaxPosition, ref currentVelocity, TimeSmooth);
+				else if (player.currentAcceleration < 0)
+					transform.position = Vector3.SmoothDamp(transform.position, cameraTargetMinPosition, ref currentVelocity, TimeSmooth);
+				else
+					transform.position = Vector3.SmoothDamp(transform.position, cameraOriginalPosition, ref currentVelocity, TimeSmooth);
+			}
 			else
-				transform.position = Vector3.SmoothDamp(transform.position, cameraOriginalPosition, ref currentVelocity, TimeSmooth);
+				transform.localPosition = cameraDefaultPosition;
 		}
-	   
+	
+	}
+
+	public bool ToggleZoom()
+	{
+		camZoom = !camZoom;
+		return camZoom;
+	}
+
+	public bool ToggleFOV()
+	{
+		camFOV = !camFOV;
+		return camFOV;
+	}
+
+	public void SetZoom(bool t)
+	{
+		camZoom = t;
+	}
+
+	public void SetFOV(bool t)
+	{
+		camFOV = t;
 	}
 }

@@ -10,7 +10,7 @@ public class FPSCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        t = GetComponentInChildren<TextMeshProUGUI>();
+        t = GetComponent<TextMeshProUGUI>();
         StartCoroutine(UpdateCounter());
     }
 
