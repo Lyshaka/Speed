@@ -8,6 +8,6 @@ public class LightHouse : MonoBehaviour
 
 	void Update()
 	{
-		transform.eulerAngles -= new Vector3(0f, speed * Time.deltaTime, 0f);     
+		transform.eulerAngles -= new Vector3(0f, speed * Time.deltaTime, 0f);
 	}
 }

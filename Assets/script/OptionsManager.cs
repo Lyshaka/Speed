@@ -26,6 +26,10 @@ public class OptionsManager : MonoBehaviour
 	public Image roadStripsSR;
 	public Image frictionSR;
 	public Image lightHouseSR;
+	public Image riverSR;
+	public Image cascadeSR;
+	public Image fairyWheelSR;
+	public Image crowdStandsSR;
 
 	[Header("Game Objects")]
 	public GameObject rainObject;
@@ -38,6 +42,10 @@ public class OptionsManager : MonoBehaviour
 	public GameObject roadStripsObject;
 	public GameObject frictionObject;
 	public GameObject lightHouseObject;
+	public GameObject riverObject;
+	public GameObject cascadeObject;
+	public GameObject fairyWheelObject;
+	public GameObject crowdStandsObject;
 
 	public void ToggleOptions()
 	{
@@ -58,8 +66,12 @@ public class OptionsManager : MonoBehaviour
 		roadStripsObject.GetComponent<MeshRenderer>().sharedMaterial = roadOn;
 		frictionObject.SetActive(true);
 		lightHouseObject.SetActive(true);
+		riverObject.SetActive(true);
+		cascadeObject.SetActive(true);
+		fairyWheelObject.SetActive(true);
+		crowdStandsObject.SetActive(true);
 
-	rainSR.sprite = activatedSprite;
+		rainSR.sprite = activatedSprite;
 		snowSR.sprite = activatedSprite;
 		cameraZoomSR.sprite = activatedSprite;
 		cameraFOVSR.sprite = activatedSprite;
@@ -71,6 +83,10 @@ public class OptionsManager : MonoBehaviour
 		roadStripsSR.sprite = activatedSprite;
 		frictionSR.sprite = activatedSprite;
 		lightHouseSR.sprite = activatedSprite;
+		riverSR.sprite = activatedSprite;
+		cascadeSR.sprite = activatedSprite;
+		fairyWheelSR.sprite = activatedSprite;
+		crowdStandsSR.sprite = activatedSprite;
 	}
 
 	public void DeactivateAll()
@@ -87,6 +103,10 @@ public class OptionsManager : MonoBehaviour
 		roadStripsObject.GetComponent<MeshRenderer>().sharedMaterial = roadOff;
 		frictionObject.SetActive(false);
 		lightHouseObject.SetActive(false);
+		riverObject.SetActive(false);
+		cascadeObject.SetActive(false);
+		fairyWheelObject.SetActive(false);
+		crowdStandsObject.SetActive(false);
 
 		rainSR.sprite = deactivatedSprite;
 		snowSR.sprite = deactivatedSprite;
@@ -100,6 +120,10 @@ public class OptionsManager : MonoBehaviour
 		roadStripsSR.sprite = deactivatedSprite;
 		frictionSR.sprite = deactivatedSprite;
 		lightHouseSR.sprite = deactivatedSprite;
+		riverSR.sprite = deactivatedSprite;
+		cascadeSR.sprite = deactivatedSprite;
+		fairyWheelSR.sprite = deactivatedSprite;
+		crowdStandsSR.sprite = deactivatedSprite;
 	}
 
 	public void ToggleRain()
@@ -182,4 +206,27 @@ public class OptionsManager : MonoBehaviour
 		lightHouseSR.sprite = lightHouseObject.activeSelf ? activatedSprite : deactivatedSprite;
 	}
 
+	public void ToggleRiver()
+	{
+		riverObject.SetActive(!riverObject.activeSelf);
+		riverSR.sprite = riverObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleCascade()
+	{
+		cascadeObject.SetActive(!cascadeObject.activeSelf);
+		cascadeSR.sprite = cascadeObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleFairyWheel()
+	{
+		fairyWheelObject.SetActive(!fairyWheelObject.activeSelf);
+		fairyWheelSR.sprite = fairyWheelObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleCrowdStands()
+	{
+		crowdStandsObject.SetActive(!crowdStandsObject.activeSelf);
+		crowdStandsSR.sprite = crowdStandsObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
 }

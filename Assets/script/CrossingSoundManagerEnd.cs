@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class CrossingSoundManagerEnd : MonoBehaviour
 {
-    public float fadeOutTime = 1.0f;
+	public float fadeOutTime = 1.0f;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 3)
-        {
-            Debug.Log("end");
-            StartCoroutine(DeactivateSound());
-        }
-    }
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.layer == 3)
+		{
+			Debug.Log("end");
+			StartCoroutine(DeactivateSound());
+		}
+	}
 
-    IEnumerator DeactivateSound()
-    {
-        AudioSource audioSource = GetComponentInParent<AudioSource>();
-        float elapsedTime = 0.0f;
+	IEnumerator DeactivateSound()
+	{
+		AudioSource audioSource = GetComponentInParent<AudioSource>();
+		float elapsedTime = 0.0f;
 
-        audioSource.volume = 0.0f;
-        while (elapsedTime < fadeOutTime)
-        {
-            audioSource.volume = 1.0f - (elapsedTime / fadeOutTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        audioSource.volume = 0.0f;
-        audioSource.Stop();
-    }
+		audioSource.volume = 0.0f;
+		while (elapsedTime < fadeOutTime)
+		{
+			audioSource.volume = 1.0f - (elapsedTime / fadeOutTime);
+			elapsedTime += Time.deltaTime;
+			yield return null;
+		}
+		audioSource.volume = 0.0f;
+		audioSource.Stop();
+	}
 }
