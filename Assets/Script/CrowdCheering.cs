@@ -5,8 +5,8 @@ using UnityEngine;
 public class CrowdCheering : MonoBehaviour
 {
 	AudioSource[] crowds;
-	float fadeInTime = 1f;
-	float fadeOutTime = 1f;
+	public float fadeInTime = 1f;
+	public float fadeOutTime = 1f;
 
 	// Start is called before the first frame update
 	void Start()

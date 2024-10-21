@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TrippyColorChange : MonoBehaviour
 {
-	public Renderer objectRenderer;  // Assign this in the inspector or via script
+	Renderer objectRenderer;  // Assign this in the inspector or via script
 	public float frequency = 1.0f;   // How fast the colors change
 	public float amplitude = 0.5f;   // Range of the color fluctuation
 

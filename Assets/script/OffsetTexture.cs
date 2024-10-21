@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class OffsetTexture : MonoBehaviour
 {
-    public Material mat;
-    public float speed;
+	Renderer mat;
+	public float speed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		mat = GetComponentInChildren<Renderer>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        mat.mainTextureOffset = new Vector2(mat.mainTextureOffset.x + speed * Time.deltaTime, 0.0f);
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		mat.material.mainTextureOffset = new Vector2(mat.material.mainTextureOffset.x + speed * Time.deltaTime, 0.0f);
+	}
 }
