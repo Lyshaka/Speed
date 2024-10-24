@@ -8,13 +8,13 @@ public class TheSphere : MonoBehaviour
 	private Rigidbody Rigidbody;
 	public float MaxSpeed = 50;
 	public float BrakeSpeed { get; private set; }
-    public float Acceleration { get; private set; }
+	public float Acceleration { get; private set; }
 	public float Deceleration { get; private set; }
-    public float CurrentSpeed { get; private set; } = 0f;
+	public float CurrentSpeed { get; private set; } = 0f;
 	public float RotateSpeed = 90f;
 	private float prevSpeed = 0f;
-    public float currentAcceleration { get; private set; }
-    Camera playercam;
+	public float currentAcceleration { get; private set; }
+	Camera playercam;
 
 	public ParticleSystem ps_friction;
 	public AnimationCurve ac_friction;
@@ -42,7 +42,7 @@ public class TheSphere : MonoBehaviour
 
 		currentAcceleration = CurrentSpeed - prevSpeed;
 		prevSpeed = CurrentSpeed;
-        
+		
 		if (Input.GetKey(KeyCode.S))
 		{
 			CurrentSpeed -= BrakeSpeed * Time.deltaTime;
@@ -55,7 +55,7 @@ public class TheSphere : MonoBehaviour
 		{
 			CurrentSpeed += Acceleration * Time.deltaTime;
 
-            if (CurrentSpeed > MaxSpeed)
+			if (CurrentSpeed > MaxSpeed)
 			{
 				CurrentSpeed = MaxSpeed;
 			}
@@ -65,7 +65,7 @@ public class TheSphere : MonoBehaviour
 			if (CurrentSpeed > 0)
 			{
 				CurrentSpeed -= Deceleration * Time.deltaTime;
-                if (CurrentSpeed < 0)
+				if (CurrentSpeed < 0)
 				{
 					CurrentSpeed = 0;
 				}
