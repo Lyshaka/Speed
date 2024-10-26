@@ -49,8 +49,6 @@ public class Camfollow : MonoBehaviour
 	{
 		if(Target != null)
 		{
-		   
-
 			Vector3 TargetPosition = Target.position + Offset;
 			cameraOriginalPosition = transform.parent.position;
 			cameraTargetMinPosition = transform.parent.position + (transform.parent.forward * cameraFrontPull);
@@ -99,20 +97,6 @@ public class Camfollow : MonoBehaviour
 				cam.fieldOfView = ((player.CurrentSpeed / player.MaxSpeed) * (maxFov - minFov)) + minFov;
 			else
 				cam.fieldOfView = minFov;
-
-			// Debug
-			if (Input.GetKeyDown(KeyCode.J))
-			{
-				transform.position = cameraTargetMinPosition;
-			}
-			if (Input.GetKeyDown(KeyCode.K))
-			{
-				transform.position = cameraOriginalPosition;
-			}
-			if (Input.GetKeyDown(KeyCode.L))
-			{
-				transform.position = cameraTargetMaxPosition;
-			}
 
 			if (camZoom)
 			{

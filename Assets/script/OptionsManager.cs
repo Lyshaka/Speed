@@ -30,6 +30,15 @@ public class OptionsManager : MonoBehaviour
 	public Image cascadeSR;
 	public Image fairyWheelSR;
 	public Image crowdStandsSR;
+	public Image tunnelsSR;
+	public Image streetLightsSR;
+	public Image treesSR;
+	public Image archesSR;
+	public Image adSpotSR;
+	public Image trailRendererSR;
+	public Image speedParticleSR;
+	public Image trainTrackSR;
+	public Image musicSR;
 
 	[Header("Game Objects")]
 	public GameObject rainObject;
@@ -46,6 +55,15 @@ public class OptionsManager : MonoBehaviour
 	public GameObject cascadeObject;
 	public GameObject fairyWheelObject;
 	public GameObject crowdStandsObject;
+	public GameObject tunnelsObject;
+	public GameObject streetLightsObject;
+	public GameObject treesObject;
+	public GameObject archesObject;
+	public GameObject adSpotObject;
+	public GameObject trailRendererObject;
+	public GameObject speedParticleObject;
+	public GameObject trainTrackObject;
+	public GameObject musicObject;
 
 	public void ToggleOptions()
 	{
@@ -70,6 +88,15 @@ public class OptionsManager : MonoBehaviour
 		cascadeObject.SetActive(true);
 		fairyWheelObject.SetActive(true);
 		crowdStandsObject.SetActive(true);
+		tunnelsObject.SetActive(true);
+		streetLightsObject.SetActive(true);
+		treesObject.SetActive(true);
+		archesObject.SetActive(true);
+		adSpotObject.SetActive(true);
+		trailRendererObject.SetActive(true);
+		speedParticleObject.SetActive(true);
+		trainTrackObject.SetActive(true);
+		musicObject.SetActive(true);
 
 		rainSR.sprite = activatedSprite;
 		snowSR.sprite = activatedSprite;
@@ -87,6 +114,15 @@ public class OptionsManager : MonoBehaviour
 		cascadeSR.sprite = activatedSprite;
 		fairyWheelSR.sprite = activatedSprite;
 		crowdStandsSR.sprite = activatedSprite;
+		tunnelsSR.sprite = activatedSprite;
+		streetLightsSR.sprite = activatedSprite;
+		treesSR.sprite = activatedSprite;
+		archesSR.sprite = activatedSprite;
+		adSpotSR.sprite = activatedSprite;
+		trailRendererSR.sprite = activatedSprite;
+		speedParticleSR.sprite = activatedSprite;
+		trainTrackSR.sprite = activatedSprite;
+		musicSR.sprite = activatedSprite;
 	}
 
 	public void DeactivateAll()
@@ -107,6 +143,15 @@ public class OptionsManager : MonoBehaviour
 		cascadeObject.SetActive(false);
 		fairyWheelObject.SetActive(false);
 		crowdStandsObject.SetActive(false);
+		tunnelsObject.SetActive(false);
+		streetLightsObject.SetActive(false);
+		treesObject.SetActive(false);
+		archesObject.SetActive(false);
+		adSpotObject.SetActive(false);
+		trailRendererObject.SetActive(false);
+		speedParticleObject.SetActive(false);
+		trainTrackObject.SetActive(false);
+		musicObject.SetActive(false);
 
 		rainSR.sprite = deactivatedSprite;
 		snowSR.sprite = deactivatedSprite;
@@ -124,6 +169,15 @@ public class OptionsManager : MonoBehaviour
 		cascadeSR.sprite = deactivatedSprite;
 		fairyWheelSR.sprite = deactivatedSprite;
 		crowdStandsSR.sprite = deactivatedSprite;
+		tunnelsSR.sprite = deactivatedSprite;
+		streetLightsSR.sprite = deactivatedSprite;
+		treesSR.sprite = deactivatedSprite;
+		archesSR.sprite = deactivatedSprite;
+		adSpotSR.sprite = deactivatedSprite;
+		trailRendererSR.sprite = deactivatedSprite;
+		speedParticleSR.sprite = deactivatedSprite;
+		trainTrackSR.sprite = deactivatedSprite;
+		musicSR.sprite = deactivatedSprite;
 	}
 
 	public void ToggleRain()
@@ -228,5 +282,59 @@ public class OptionsManager : MonoBehaviour
 	{
 		crowdStandsObject.SetActive(!crowdStandsObject.activeSelf);
 		crowdStandsSR.sprite = crowdStandsObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleTunnels()
+	{
+		tunnelsObject.SetActive(!tunnelsObject.activeSelf);
+		tunnelsSR.sprite = tunnelsObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleStreetLights()
+	{
+		streetLightsObject.SetActive(!streetLightsObject.activeSelf);
+		streetLightsSR.sprite = streetLightsObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleTrees()
+	{
+		treesObject.SetActive(!treesObject.activeSelf);
+		treesSR.sprite = treesObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleArches()
+	{
+		archesObject.SetActive(!archesObject.activeSelf);
+		archesSR.sprite = archesObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleAdSpot()
+	{
+		adSpotObject.SetActive(!adSpotObject.activeSelf);
+		adSpotSR.sprite = adSpotObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleTrailRenderer()
+	{
+		trailRendererObject.SetActive(!trailRendererObject.activeSelf);
+		trailRendererSR.sprite = trailRendererObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleSpeedParticle()
+	{
+		speedParticleObject.SetActive(!speedParticleObject.activeSelf);
+		speedParticleSR.sprite = speedParticleObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleTrainTrack()
+	{
+		trainTrackObject.SetActive(!trainTrackObject.activeSelf);
+		trainTrackSR.sprite = trainTrackObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleMusic()
+	{
+		musicObject.SetActive(!musicObject.activeSelf);
+		musicSR.sprite = musicObject.activeSelf ? activatedSprite : deactivatedSprite;
 	}
 }

@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class CrowdCheering : MonoBehaviour
 {
+	[Header("Audio")]
 	AudioSource[] crowds;
 	public float fadeInTime = 1f;
 	public float fadeOutTime = 1f;
+
+	[Header("Movement")]
+	public Material crowdMat;
+	public float moveSpeed = 1f;
+	private float currentMovement;
+	private int direction = 1;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -16,6 +24,16 @@ public class CrowdCheering : MonoBehaviour
 		{
 			StartCoroutine(StartSoundRandomDelay(crowd));
 		}
+	}
+
+	private void Update()
+	{
+		//crowdMat.mainTextureOffset.x += Time.deltaTime * moveSpeed;
+		if (crowdMat.mainTextureOffset.y > 0.1f)
+			direction = -1;
+		if (crowdMat.mainTextureOffset.y < -0.1f)
+			direction = 1;
+		crowdMat.mainTextureOffset = new Vector2(0.0f, crowdMat.mainTextureOffset.y + moveSpeed * Time.deltaTime * direction);
 	}
 
 	private void OnTriggerEnter(Collider other)

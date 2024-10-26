@@ -18,6 +18,8 @@ public class TheSphere : MonoBehaviour
 
 	public ParticleSystem ps_friction;
 	public AnimationCurve ac_friction;
+	public ParticleSystem ps_speed;
+	public AnimationCurve ac_speed;
 
 	void Start()
 	{
@@ -35,6 +37,8 @@ public class TheSphere : MonoBehaviour
 		Move();
 		var emission = ps_friction.emission;
 		emission.rateOverTime = ac_friction.Evaluate((CurrentSpeed / MaxSpeed)) * 50f;
+		emission = ps_speed.emission;
+		emission.rateOverTime = ac_speed.Evaluate((CurrentSpeed / MaxSpeed)) * 100f;
 	}
 	private void Move()
 	{

@@ -19,6 +19,6 @@ public class Music : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		audioSource.volume = curve.Evaluate(player.CurrentSpeed / player.MaxSpeed) * volumeMultiplier + 0.01f;
+		audioSource.volume = curve.Evaluate(player.CurrentSpeed / player.MaxSpeed) * volumeMultiplier + 0.005f;
 	}
 }
