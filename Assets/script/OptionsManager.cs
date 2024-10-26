@@ -38,6 +38,7 @@ public class OptionsManager : MonoBehaviour
 	public Image trailRendererSR;
 	public Image speedParticleSR;
 	public Image trainTrackSR;
+	public Image motorSoundSR;
 	public Image musicSR;
 
 	[Header("Game Objects")]
@@ -63,6 +64,7 @@ public class OptionsManager : MonoBehaviour
 	public GameObject trailRendererObject;
 	public GameObject speedParticleObject;
 	public GameObject trainTrackObject;
+	public GameObject motorSoundObject;
 	public GameObject musicObject;
 
 	public void ToggleOptions()
@@ -96,6 +98,7 @@ public class OptionsManager : MonoBehaviour
 		trailRendererObject.SetActive(true);
 		speedParticleObject.SetActive(true);
 		trainTrackObject.SetActive(true);
+		motorSoundObject.SetActive(true);
 		musicObject.SetActive(true);
 
 		rainSR.sprite = activatedSprite;
@@ -122,6 +125,7 @@ public class OptionsManager : MonoBehaviour
 		trailRendererSR.sprite = activatedSprite;
 		speedParticleSR.sprite = activatedSprite;
 		trainTrackSR.sprite = activatedSprite;
+		motorSoundSR.sprite = activatedSprite;
 		musicSR.sprite = activatedSprite;
 	}
 
@@ -151,6 +155,7 @@ public class OptionsManager : MonoBehaviour
 		trailRendererObject.SetActive(false);
 		speedParticleObject.SetActive(false);
 		trainTrackObject.SetActive(false);
+		motorSoundObject.SetActive(false);
 		musicObject.SetActive(false);
 
 		rainSR.sprite = deactivatedSprite;
@@ -177,6 +182,7 @@ public class OptionsManager : MonoBehaviour
 		trailRendererSR.sprite = deactivatedSprite;
 		speedParticleSR.sprite = deactivatedSprite;
 		trainTrackSR.sprite = deactivatedSprite;
+		motorSoundSR.sprite = deactivatedSprite;
 		musicSR.sprite = deactivatedSprite;
 	}
 
@@ -330,6 +336,12 @@ public class OptionsManager : MonoBehaviour
 	{
 		trainTrackObject.SetActive(!trainTrackObject.activeSelf);
 		trainTrackSR.sprite = trainTrackObject.activeSelf ? activatedSprite : deactivatedSprite;
+	}
+
+	public void ToggleMotorSound()
+	{
+		motorSoundObject.SetActive(!motorSoundObject.activeSelf);
+		motorSoundSR.sprite = motorSoundObject.activeSelf ? activatedSprite : deactivatedSprite;
 	}
 
 	public void ToggleMusic()
